@@ -13,6 +13,5 @@ jobs:
           java-version: "12.x"
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: "1.16.x"
-          channel: master
+          channel: "master"
       - run: flutter test
