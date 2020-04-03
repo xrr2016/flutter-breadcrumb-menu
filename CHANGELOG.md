@@ -1,7 +1,12 @@
-## [0.1.0] - 2020.04.03.
+## [0.1.2] - 2020.04.03
 
-* first release of flutter breadcrumb menu 🚀
+* use grey color for last breadcrumb.
 
-## [0.1.1] - 2020.04.03.
+## [0.1.1] - 2020.04.03
 
-* change package version 🚀
+* change package version.
+
+## [0.1.0] - 2020.04.03
+
+* first release of flutter breadcrumb menu. 🚀
+

@@ -38,8 +38,7 @@ class Breadcrumb extends StatelessWidget {
             itemBuilder: (BuildContext ctx, int index) {
               final bread = breads[index];
               bool isLast = bread == breads.last;
-              Color _color =
-                  isLast ? Theme.of(context).textTheme.bodyText1.color : color;
+              Color _color = isLast ? Colors.grey : color;
 
               return InkWell(
                 onTap: () {
