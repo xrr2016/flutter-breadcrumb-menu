@@ -3,7 +3,7 @@ name: Test
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -14,5 +14,5 @@ jobs:
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: "1.12.x"
-          channel: "stable"
+          channel: "master"
       - run: flutter test

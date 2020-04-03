@@ -1,5 +1,7 @@
 # flutter breadcrumb menu
 
+![Test](https://github.com/xrr2016/flutter-breadcrumb-menu/workflows/Test/badge.svg)
+
 ![example](./example/example.gif)
 
 ## Install
