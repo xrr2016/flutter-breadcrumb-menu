@@ -8,7 +8,7 @@
 
 ```yml
 dependencies:
-  flutter_breadcrumb_menu: ^0.1.1
+  flutter_breadcrumb_menu: ^0.1.2
 ```
 
 ## Usage
