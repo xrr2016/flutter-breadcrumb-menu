@@ -1,6 +1,6 @@
 # flutter breadcrumb menu
 
-![Test](https://github.com/xrr2016/flutter-breadcrumb-menu/workflows/Test/badge.svg)
+![Test](https://github.com/xrr2016/flutter-breadcrumb-menu/workflows/Test/badge.svg?branch=master)
 
 ![example](./example/example.gif)
 
