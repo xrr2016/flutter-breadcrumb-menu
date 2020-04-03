@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_breadcrumb/flutter_breadcrumb.dart';
+import 'package:flutter_breadcrumb_menu/flutter_breadcrumb_menu.dart';
 
 class FlutterDev extends StatelessWidget {
   static final String routeName = '/flutter-dev';

@@ -1,3 +1,5 @@
+library flutter_breadcrumb_menu;
+
 import 'package:flutter/material.dart';
 
 class Bread {

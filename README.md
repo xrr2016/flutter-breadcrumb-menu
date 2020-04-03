@@ -1,4 +1,4 @@
-# flutter breadcrumb
+# flutter breadcrumb menu
 
 ![example](./example/example.gif)
 
