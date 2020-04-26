@@ -2,19 +2,20 @@ library flutter_breadcrumb_menu;
 
 import 'package:flutter/material.dart';
 
-class Bread {
-  final route;
+class Bread<T> {
+  final T route;
   final arguments;
   final String label;
 
   Bread({@required this.label, this.route, this.arguments});
 }
 
-class Breadcrumb extends StatelessWidget {
+class Breadcrumb<T> extends StatelessWidget {
   final Color color;
   final double height;
   final Widget separator;
-  final List<Bread> breads;
+  final ValueChanged<T> onValueChanged;
+  final List<Bread<T>> breads;
 
   const Breadcrumb({
     this.height = 40.0,
@@ -23,6 +24,7 @@ class Breadcrumb extends StatelessWidget {
       Icons.arrow_forward_ios,
       size: 12.0,
     ),
+    this.onValueChanged,
     @required this.breads,
   }) : assert(breads != null);
 
@@ -47,13 +49,18 @@ class Breadcrumb extends StatelessWidget {
                   }
                   final route = bread.route;
                   final arguments = bread.arguments;
-                  if (route is String) {
-                    Navigator.of(context).pushNamed(
-                      route,
-                      arguments: arguments,
-                    );
-                  } else if (route is PageRoute) {
-                    Navigator.of(context).push(route);
+                  if (this.onValueChanged!=null){
+                    this.onValueChanged(route);
+                  }
+                  else {
+                    if (route is String) {
+                      Navigator.of(context).pushNamed(
+                        route,
+                        arguments: arguments,
+                      );
+                    } else if (route is PageRoute) {
+                      Navigator.of(context).push(route);
+                    }
                   }
                 },
                 child: Center(
