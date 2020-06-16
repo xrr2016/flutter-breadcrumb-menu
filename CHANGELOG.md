@@ -1,3 +1,7 @@
+## [1.0.0] - 2020.06.16
+
+* Version v1.0.0 release! 🎉
+
 ## [0.1.3] - 2020.04.27
 
 * Add OnValueChanged event

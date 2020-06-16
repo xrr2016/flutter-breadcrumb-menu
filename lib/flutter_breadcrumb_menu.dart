@@ -49,10 +49,9 @@ class Breadcrumb<T> extends StatelessWidget {
                   }
                   final route = bread.route;
                   final arguments = bread.arguments;
-                  if (this.onValueChanged!=null){
+                  if (this.onValueChanged != null) {
                     this.onValueChanged(route);
-                  }
-                  else {
+                  } else {
                     if (route is String) {
                       Navigator.of(context).pushNamed(
                         route,
