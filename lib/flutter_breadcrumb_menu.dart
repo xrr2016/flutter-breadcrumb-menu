@@ -1,6 +1,7 @@
 library flutter_breadcrumb_menu;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class Bread<T> {
   final T route;
@@ -30,11 +31,14 @@ class Breadcrumb<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    final controller = ScrollController();
+
+    final widget = Column(
       children: <Widget>[
         Container(
           height: height,
           child: ListView.separated(
+            controller: controller,
             itemCount: breads.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext ctx, int index) {
@@ -79,5 +83,10 @@ class Breadcrumb<T> extends StatelessWidget {
         Divider(),
       ],
     );
+
+    SchedulerBinding.instance.addPostFrameCallback(
+        (timeStamp) => controller.jumpTo(controller.position.maxScrollExtent));
+
+    return widget;
   }
 }
