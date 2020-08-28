@@ -79,8 +79,7 @@ class Breadcrumb<T> extends StatelessWidget {
             },
             separatorBuilder: (BuildContext ctx, int index) => separator,
           ),
-        ),
-        Divider(),
+        )
       ],
     );
 
