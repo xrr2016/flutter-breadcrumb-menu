@@ -27,7 +27,7 @@ class Breadcrumb<T> extends StatelessWidget {
     ),
     this.onValueChanged,
     required this.breads,
-  }) : assert(breads != null);
+  });
 
   @override
   Widget build(BuildContext context) {
