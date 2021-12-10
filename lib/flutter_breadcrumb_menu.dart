@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 class Bread<T> {
-  final T route;
+  final T? route;
   final arguments;
   final String label;
 
-  Bread({@required this.label, this.route, this.arguments});
+  Bread({required this.label, this.route, this.arguments});
 }
 
 class Breadcrumb<T> extends StatelessWidget {
   final Color color;
   final double height;
   final Widget separator;
-  final ValueChanged<T> onValueChanged;
+  final ValueChanged<T?>? onValueChanged;
   final List<Bread<T>> breads;
 
   const Breadcrumb({
@@ -26,8 +26,8 @@ class Breadcrumb<T> extends StatelessWidget {
       size: 12.0,
     ),
     this.onValueChanged,
-    @required this.breads,
-  }) : assert(breads != null);
+    required this.breads,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -54,15 +54,15 @@ class Breadcrumb<T> extends StatelessWidget {
                   final route = bread.route;
                   final arguments = bread.arguments;
                   if (this.onValueChanged != null) {
-                    this.onValueChanged(route);
+                    this.onValueChanged!(route);
                   } else {
                     if (route is String) {
                       Navigator.of(context).pushNamed(
-                        route,
+                        route!,
                         arguments: arguments,
                       );
                     } else if (route is PageRoute) {
-                      Navigator.of(context).push(route);
+                      Navigator.of(context).push(route!);
                     }
                   }
                 },
@@ -83,7 +83,7 @@ class Breadcrumb<T> extends StatelessWidget {
       ],
     );
 
-    SchedulerBinding.instance.addPostFrameCallback(
+    SchedulerBinding.instance!.addPostFrameCallback(
         (timeStamp) => controller.jumpTo(controller.position.maxScrollExtent));
 
     return widget;
