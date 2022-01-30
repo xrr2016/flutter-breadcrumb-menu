@@ -18,6 +18,13 @@ class Breadcrumb<T> extends StatelessWidget {
   final ValueChanged<T?>? onValueChanged;
   final List<Bread<T>> breads;
 
+  /// Set this to true if in your usage you want to override that, and allow the last
+  /// item to be clickable.
+  /// In general, the last crumb is assumed to be current view and is not clickable.
+  /// If you aren't showing the current item in the breadcrumb list, you probably
+  /// want all breadcrumbs to be clickable.
+  final bool isLastActive;
+
   const Breadcrumb({
     this.height = 40.0,
     this.color = Colors.blue,
@@ -26,8 +33,9 @@ class Breadcrumb<T> extends StatelessWidget {
       size: 12.0,
     ),
     this.onValueChanged,
+    bool isLastActive = false,
     required this.breads,
-  });
+  }) : isLastActive = isLastActive;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +56,7 @@ class Breadcrumb<T> extends StatelessWidget {
 
               return InkWell(
                 onTap: () {
-                  if (isLast) {
+                  if (isLast && !isLastActive) {
                     return;
                   }
                   final route = bread.route;
@@ -58,11 +66,11 @@ class Breadcrumb<T> extends StatelessWidget {
                   } else {
                     if (route is String) {
                       Navigator.of(context).pushNamed(
-                        route!,
+                        route,
                         arguments: arguments,
                       );
                     } else if (route is PageRoute) {
-                      Navigator.of(context).push(route!);
+                      Navigator.of(context).push(route);
                     }
                   }
                 },
