@@ -51,12 +51,12 @@ class Breadcrumb<T> extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemBuilder: (BuildContext ctx, int index) {
               final bread = breads[index];
-              bool isLast = bread == breads.last;
-              Color _color = isLast ? Colors.grey : color;
+              bool isDisabled = bread == breads.last && !isLastActive;
+              Color _color = isDisabled ? Colors.grey : color;
 
               return InkWell(
                 onTap: () {
-                  if (isLast && !isLastActive) {
+                  if (isDisabled) {
                     return;
                   }
                   final route = bread.route;
